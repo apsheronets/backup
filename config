@@ -1,0 +1,15 @@
+
+# you should change these settings:
+
+key_file=$HOME/mykeyfile
+root_to_backup=/home/komar/devel/backup
+remote_host=bigass
+remote_user=root
+remote_path=/root/backups/
+
+# but changing these is not required:
+
+sparse_file_size=400G
+working_dir=$HOME/.backups
+exclude_file=/home/komar/devel/backup/exclude
+ssh_opts="ServerAliveInterval=15,ServerAliveCountMax=3"
