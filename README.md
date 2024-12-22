@@ -32,7 +32,7 @@ Usage
 
 "Restore" — mount a file:
 
-    sudo ./mount pc_20241223020347 /mnt/temp
+    sudo ./mount /root/backups/pc_20241223020347 /mnt/temp
 
 Umount a file:
 
@@ -43,4 +43,4 @@ issues
 ------
 
  * `ncdu -X` and `mksquashfs -wildcards -ef` have different understanding of wildcards.
- ** `/one/*/three` rule means whatever levels of directories for `ncdu`, but `mksquashfs` would only match one level.
+ * * `/one/*/three` rule means whatever levels of directories for `ncdu`, but `mksquashfs` would only match one level.
