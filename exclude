@@ -4,3 +4,7 @@
 /run
 /media
 /mnt
+/home/*/.cache
+/home/*/.config/chromium/*/Service Worker/CacheStorage
+/home/*/.mozilla/firefox/*/cache
+/home/*/.mozilla/firefox/*/storage

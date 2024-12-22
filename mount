@@ -1,0 +1,10 @@
+#!/bin/bash
+
+src=$1
+dst=$2
+[[ -z $src || -z $dst ]] && { echo "usage: ./mount source destination"; exit 1; }
+
+source $(dirname $0)/config
+
+cryptsetup luksOpen --key-file $key_file $src $(basename $src)
+mount /dev/disk/by-id/dm-name-$(basename $src) $dst -o ro

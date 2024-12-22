@@ -1,0 +1,14 @@
+#!/bin/bash
+
+[ -z "$1" ] && { echo "requires an argument"; exit 1; }
+
+source $(dirname $0)/config
+
+echo "making a squashfs image"
+nice ionice -c3 mksquashfs $root_to_backup $1 -noappend -comp gzip -ef $exclude_file -wildcards || exit 1
+
+echo "growing the image up to extra 8M (to fit LUKS headers)"
+truncate -s +8M $1 || exit 1
+
+echo "converting into LUKS container"
+nice ionice -c3 cryptsetup --batch-mode reencrypt --encrypt --key-file $key_file --type luks2 --resilience none --disable-locks --reduce-device-size 8M $1
